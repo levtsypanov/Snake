@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<title>Snake</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0"/>
+		<meta charset="utf-8"/>
+        <meta name="description" content="Tidle Corporation">
+        <meta name="keywords" content="snake, html5, game">
+        <meta name="author" content="levtsypanov">
+        <meta name="Robots" content="All" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="SHORTCUT ICON" href="favicon.ico" type="image/x-icon" />
+        <!-- Мета-свойства OpenGraph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://vk.com/tidle_vk" />
+        <meta property="og:title" content="Snake" />
+        <meta property="og:description" content="Tidle Corporation" />
+        <meta property="og:site_name" content="Snake" />
+        <meta property="og:image" content="http://levtsypanov.github.io/snake/screenshot.jpg" />
+        <link rel="image_src" href="img/favicon.png" />
+		<!-- Загрузить таблицы стилей -->
+		<link href="css/style.css" rel="stylesheet"/>
+		<link href="css/normalize.css" rel="stylesheet"/>    
+	</head>
+	<body id="main">
+    	<!-- конец экрана загрузки -->
+        <div id="loader">
+          <h1 id="loader-title">Snake</h1>
+          <p id="loading-text">Загрузка...</p>
+          <div id="bar-container">
+            <div id="bar"></div>
+          </div>
+        </div>
+        <!-- end loading screen -->
+        
+        <!-- Основной контейнер -->
+        <div id="container">
+           <!-- Заголовок страницы -->
+        	<a href="http://levtsypanov.github.io/snake/">
+            <h1>Snake</h1>
+           </a>
+           <h3>Tidle Corporation</h3>
+           <!-- конец заголовка -->
+           
+           <div id="game-container">
+             <div id="canvas-container">
+               <!-- Холст -->
+               <canvas id="canvas">Your browser doesn't support HTML5! Please upgrade your browser.</canvas>
+               
+               <!-- Холщовая накладка -->
+               <div id="canvas-overlay">
+                 <div id="overlay-inner">
+                   <span id="overlay-text" data-action="play">Play</span>
+                   
+                   <!-- Сохранение результатов -->
+                   <div id="save">Save score</div>
+                     <!-- Сохранить входные данные окна оценки -->
+                     <div id="save-score-box">
+                       <div id="save-score-inner">
+                         <input type="text" id="save-name" placeholder="Name">
+                         <input type="button" id="save-button" value="Save">
+                         <input type="button" id="cancel-button" value="Cancel">
+                       </div>
+                     </div>
+                     <!-- !оконечные входы -->
+                  </div>
+                </div>
+                <!-- конец наложения -->
+               </div>
+               <!-- конец холст контейнер -->
+               
+               <!-- Добавление бонуса -->
+               <div class="bonus-text"></div>
+                 <!-- Отображение счета -->
+                 <div id="score-container">
+                   <div id="score-text">Score</div>
+                   <div id="score-num">0</div>
+                 </div>   
+                    
+               <!-- Выбор скорости -->
+               <div id="speed-container">
+                 <div id="speed-text">Speed</div>
+                   <input type="range" min="5" max="20" value="12" id="speed-fader">
+                   <div id="speed-labels">  
+                     <span id="speed-min">Min</span>
+                     <span id="speed-max">Max</span>
+                   </div>
+               </div>
+              
+       
+
+       <!-- Загрузить скрипты -->
+       <script src="js/jquery-2.1.4.min.js"></script>
+       <script src="js/modernizr-2.6.2.min.js"></script>
+       <script src="js/fastclick.js"></script>
+       <script src="js/jquery.touchSwipe.min.js"></script>
+       <script src="js/settings.js"></script>	
+       <script src="js/script.js"></script>	
+		<script src="js/engine.js"></script>
+       <script src="js/loader.js"></script>
+      <script src="js/vk-connect.js"></script>
+     </div>
+       </body>
+</html>
+	
+

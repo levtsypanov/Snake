@@ -1,0 +1,508 @@
+@import url(https://fonts.googleapis.com/css?family=Rancho);
+
+/* ОСНОВНЫЕ СТИЛИ
+------------------------------------------------ */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body#main {
+	font-family: 'Rancho', sans-serif;
+	font-size: 16px;
+	background: url(../img/background.jpg) no-repeat bottom center fixed;
+    background-color: #000;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+div#container {
+	display: none;
+    width: 75%;
+    margin: 0 auto;
+	position: relative;
+}
+
+a.github-ribbon {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+	
+#main h1, h1#loader-title {
+    font-size: 7em;
+    text-align: center;
+    color: #FFEF70;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.72);
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h1#loader-title {
+	font-size: 84pt;
+    margin-top: 47px;
+    margin-bottom: 1em;
+}
+
+#main h3 {
+    text-align: center;
+    font-weight: normal;
+	margin-top: -0.5em;
+	font-size: 1.7em;
+	margin-bottom: 1.5em;
+}
+
+#container a {
+	text-decoration: none !important;
+	color: #FFEF70;
+}
+
+a:hover, a:focus {
+	text-decoration: none;
+}
+
+div#loader {
+    width: 100%;
+    background-color: #7B9D00;
+    position: fixed;
+    z-index: 1000;
+    text-align: center;
+    color: white;
+    font-size: 30pt;
+    font-weight: normal;
+}
+
+div#bar-container {
+	width: 40%;
+    height: 30px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    position: relative;
+    padding: 5px;
+}
+
+div#bar {
+    width: 0%;
+    height: 100%;
+    background-color: #FFD745;
+    border-radius: 2px;
+}
+
+/* ИГРА
+-------------------------------------------------- */
+
+#canvas-container {
+	margin: 0 auto;
+    overflow: hidden;
+    width: 85%;
+    max-height: 360px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none;
+    line-height: 0px;
+    position: relative;
+    max-width: 500px;
+}
+
+canvas#canvas {
+	background: url(../img/yellow.jpg);
+	border-radius: 5px;
+}
+
+div#canvas-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.44);
+    border-radius: 5px;
+    color: white;
+}
+
+div#overlay-inner {
+    width: 84%;
+    height: 91%;
+    padding: .5em;
+    text-align: center;
+    font-size: 5em;
+    line-height: 0.6em;
+}
+
+span.small {
+    font-size: 20pt;
+    color: rgba(255, 255, 255, 0.49);
+}
+
+span#overlay-text {
+    display: block;
+    margin-top: 1.1em;
+}
+
+div#game-container {
+    position: relative;
+}
+
+div#score-container, div#speed-container, div#border-selection-container {
+    position: absolute;
+    top: 0;
+    left: 1em;
+    line-height: 3em;
+    color: white;
+    width: 120px;
+    text-align: center;
+}
+
+div#border-selection-container {
+    top: 300px;
+}
+
+div#score-text {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.59);
+    font-size: 3em;
+}
+
+div#speed-text, div#border-text {
+    font-size: 2em;
+}
+
+div#score-num {
+    font-size: 2em;
+}
+
+div#speed-container {
+    top: 150px;
+}
+
+input#speed-fader {
+    width: 100%;
+}
+
+div#speed-labels {
+    margin-top: -25px;
+    font-size: 1.5em;
+    color: rgba(255, 255, 255, 0.54);
+    position: relative;
+}
+
+span#speed-min {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+span#speed-max {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+div.bonus-text {
+    position: absolute;
+    top: 55px;
+    left: 115px;
+    font-size: 1.5em;
+    color: #FFEF70;
+    transition: all 1s linear 0s;
+    display: none;
+}
+
+div.bonus-text.big{
+	font-size: 2.5em;	
+}
+
+div#save {
+    display: none;
+    position: absolute;
+    top: 260px;
+    text-align: center;
+    width: 84%;
+    font-size: 0.6em;
+    transition: 0.5s all linear;
+    color: #FFE800;
+	cursor: pointer;
+	line-height: 1em;
+}
+
+div#save:hover {
+    color: #D9C608;
+}
+
+div#save-score-box {
+    position: absolute;
+	display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(69, 47, 0, 0.95);
+    border-radius: 5px;
+}
+
+div#save-score-inner {
+    width: 90%;
+    height: 86%;
+    padding: 5%;
+    text-align: center;
+    line-height: 1em;
+}
+
+input#save-name {
+    display: block;
+    margin: 100px auto 0;
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 0.3em;
+    padding: 10px;
+    line-height: 30px;
+}
+
+input#save-button, #cancel-button {
+    display: inline-block;
+    margin: 10px auto;
+    font-family: inherit;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 20pt;
+    transition: 0.3s all linear;
+    background-color: #F4F5A5;
+    cursor: pointer;
+}
+
+input#save-button:hover, #cancel-button:hover {
+    background-color: #EFCB19;
+}
+
+section {
+    width: 50%;
+    margin: 2em auto 2em;
+	position: relative;
+	overflow: hidden;
+}
+
+div#social {
+    margin-top: 1em;
+}
+
+img#gplay {
+    margin: 40px auto -45px;
+    display: block;
+}
+
+.fb-like.fb_iframe_widget {
+    margin-right: 1em !important;
+}
+
+footer {
+    padding-bottom: 2em;
+    text-align: center;
+    font-weight: normal;
+    font-size: 18pt;
+    color: white;
+}
+
+#main h2 {
+    color: #FFEF70;
+    font-size: 3em;
+	 margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+p#standings-loader {
+    text-align: center;
+}
+
+p#standings-loader img {
+    width: 8%;
+}
+
+ul#standing-list {
+    padding: 0;
+    list-style: none;
+}
+
+#standing-list li {
+    background-color: rgba(225, 227, 127, 0.24);
+    padding: 5px 10px;
+    font-size: 20pt;
+    font-weight: normal;
+    border-radius: 4px;
+    margin-bottom: 2px;
+    color: white;
+}
+
+span.position {
+    display: inline-block;
+    width: 10%;
+    color: rgb(254, 244, 161);
+}
+
+span.name {
+    display: inline-block;
+    width: 70%;
+}
+
+span.score {
+    display: inline-block;
+    width: 16%;
+    text-align: right;
+	color: rgba(143, 0, 0, 0.72);
+}
+
+.scrollable {
+    overflow-y: scroll;
+    width: 104%;
+	max-height: 250px;
+}
+
+section#instructions p {
+    font-size: 1.5em;
+    font-weight: normal;
+    line-height: 1.3em;
+    color: white;
+}
+
+#border-selection-container input:empty{
+	margin-left: -999px;
+}
+
+#border-selection-container input:empty ~ label{
+	position: relative;
+	float: left;
+	line-height: 1.6em;
+	 cursor: pointer;
+     -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+  	  user-select: none;
+      margin-top: 0.3em;
+	 font-size: 1.3em;
+    color: rgba(255, 255, 255, 0.54);
+}
+
+#border-selection-container input:empty ~ label:before, 
+#border-selection-container input:empty ~ label:after {
+  position: absolute;
+	display: block;
+  content: ' ';
+  -webkit-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+}
+
+#border-selection-container input:empty ~ label:before {
+    top: 11px;
+    left: 80px;
+    width: 44px;
+    height: 10px;
+    background-color: rgba(90, 90, 90, 0.52);
+    border-radius: 8px;
+}
+
+input.switch:empty ~ label:after {
+    top: 8px;
+    left: 77px;
+    bottom: 0.1em;
+    margin-left: 0.1em;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.35)
+}
+
+#border-selection-container input:checked ~ label:before{
+	background-color: rgba(255, 239, 112, 0.56);
+}
+
+#border-selection-container input:checked ~ label:after{
+	    left: 107px;
+    background-color: rgb(255, 239, 112);
+}
+
+p#play-counter {
+    font-size: 0.8em;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.74);
+}
+
+@media screen and (max-width: 480px) {
+	
+	body {
+		padding: 0 !important;
+		background: #7B9D00;
+	}
+	
+	a.github-ribbon {
+		display: none;
+	}
+	
+	#main h3 {
+		margin-bottom: 1em;
+	}
+	
+	div#game-container {
+    	position: relative;
+    	padding: 0 10px;
+	}
+	
+	#canvas-container {
+		width: auto;
+		max-height: 360px;
+	}
+	
+	div#score-container, div#speed-container, div#border-selection-container {
+		position: initial;
+		display: inline-block;
+		margin-left: 2em;
+		font-size: .8em;
+		margin-top: 2em;
+	}
+	
+	div.bonus-text {
+    	top: 360px;
+    	left: 120px;
+	}
+	
+	div#overlay-inner {
+		width: 92%;
+		height: 91%;
+		padding: 13px;
+		text-align: center;
+		font-size: 4em;
+		line-height: 0.6em;
+	}
+	
+	div#save {
+		top: 200px;
+		width: 93%;
+	}
+	
+	section {
+		width: 90%; 
+	}
+	
+	h1#loader-title {
+		margin-bottom: 0;
+	}
+	
+	div#bar-container {
+   		width: 70%;
+    }   
+}
+
+@media screen and (max-width: 980px) {
+	#container {
+		width: 100% !important;
+    }
+}
